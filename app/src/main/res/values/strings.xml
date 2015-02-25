@@ -5,4 +5,20 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="fright">对战</string>
+    <string name="practice">练习单机</string>
+    <string name="arena">竞技场</string>
+    <string name="my_collection">我的套牌</string>
+
+    <string name="start">开始</string>
+    <string name="number_demo">9</string>
+    <string name="spell_demo">法术</string>
+    <string name="retinue_demo">随从</string>
+    <string name="skill_demo">技能</string>
+    <string name="hero_demo">英雄</string>
+    <string name="equipment_demo">装备</string>
+    <string name="demo">演示</string>
+    <string name="next_turn">结束回合</string>
+    <string name="library_count_demo">30</string>
+
 </resources>
