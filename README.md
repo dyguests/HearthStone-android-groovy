@@ -47,6 +47,7 @@ Hearth Stone,HearthStone-android-groovy,炉石传说,炉石界面/框架/逻辑/
 
 | english     |中文  |
 | --------    | --- |
+|Neutral      |中立  |
 |Druid      |德鲁伊  |
 |Hunter      |猎人  |
 |Master      |法师  |
@@ -79,21 +80,7 @@ Hearth Stone,HearthStone-android-groovy,炉石传说,炉石界面/框架/逻辑/
 |minion       |随从  |
 |spell        |法术  |
 |weapon       |武器  |
-
-###卡牌种别(species)
-
-| english     |中文  |
-| --------    | --- |
-|Neutral      |中立  |
-|Druid        |德鲁伊  |
-|Hunter       |猎人  |
-|Master       |法师  |
-|Paladin      |圣骑  |
-|Pastor       |牧师  |
-|Thieves      |盗贼  |
-|Shaman       |萨满  |
-|Warlock      |术士  |
-|Warrior      |战士  |
+|mystery       |奥秘  |
 
 ###卡牌种族
 

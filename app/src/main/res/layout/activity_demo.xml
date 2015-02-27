@@ -23,6 +23,6 @@
         app:foreground="#234124"
         app:pattern="@android:drawable/ic_menu_add"
         app:race="dragon"
-        app:species="neutral"
+        app:occupation="neutral"
         app:type="spell"/>
 </LinearLayout>

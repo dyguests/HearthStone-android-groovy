@@ -28,7 +28,7 @@
         </attr>
 
         <!--卡牌种别-->
-        <attr name="species">
+        <attr name="occupation">
             <!--中立-->
             <enum name="neutral" value="0"/>
             <!--德鲁伊-->

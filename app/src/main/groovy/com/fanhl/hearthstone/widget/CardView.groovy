@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.view.View
 import com.fanhl.hearthstone.R
 import com.fanhl.hearthstone.constants.C
+import com.fanhl.hearthstone.model.card.Card
 
 /**
  * 卡牌视图(只显示卡牌形状时的视图,其它形态使用其它的View来表示)
@@ -24,15 +25,21 @@ import com.fanhl.hearthstone.constants.C
 public class CardView extends View {
     int direction = 0//0b0:正面,0b1:背面,0b10:上下倒转
 
-    int type = Type.SPELL.id
-    int species = Species.Neutral.id
+    Card card
+
+    //FIXME 以下要删除
+    int type = Card.Type.SPELL.id
+    /**职业*/
+    int occupation = Card.Occupation.Neutral.id
 
     String cardTitle = "标题"
     String description = "描述"
     String explain = "台词"
 
-    int race = Race.NONE.id
+    /**种族*/
+    int race = Card.Race.NONE.id
     String raceString
+    //FIXME 以上要删除
 
     /**图案*/
     Drawable pattern
@@ -42,6 +49,7 @@ public class CardView extends View {
     private TextPaint mRacePaint
     private float mRaceWidth
     private float mRaceHeight
+    private Paint errPaint
 
     public CardView(Context context) {
         super(context)
@@ -64,7 +72,7 @@ public class CardView extends View {
 
         direction = typedArray.getInt(R.styleable.CardView_direction, direction)
         type = typedArray.getInt(R.styleable.CardView_type, type)
-        species = typedArray.getInt(R.styleable.CardView_species, species)
+        occupation = typedArray.getInt(R.styleable.CardView_occupation, occupation)
         cardTitle = typedArray.getString(R.styleable.CardView_cardTitle) ?: cardTitle
         description = typedArray.getString(R.styleable.CardView_description) ?: description
         explain = typedArray.getString(R.styleable.CardView_explain) ?: explain
@@ -86,6 +94,9 @@ public class CardView extends View {
     }
 
     private void initPaint() {
+        errPaint = new Paint()
+        errPaint.setColor(Color.RED)
+
         //种族
         mRacePaint = new TextPaint()
         mRacePaint.setFlags(Paint.ANTI_ALIAS_FLAG)
@@ -97,7 +108,7 @@ public class CardView extends View {
 
         //种族
         mRacePaint.setTextSize(width * C.RACE2WIDTH_RATE as float)
-        raceString = Race.values()[race].toString()
+        raceString = Card.Race.values()[race].toString()
         mRaceWidth = mRacePaint.measureText(raceString)
         Paint.FontMetrics fontMetrics = mRacePaint.getFontMetrics()
         mRaceHeight = fontMetrics.bottom
@@ -119,7 +130,10 @@ public class CardView extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) { direction & 1 ? onDrawBack(canvas) : onDrawFace(canvas) }
+    protected void onDraw(Canvas canvas) {
+        card ? (direction & 1 ? onDrawBack(canvas) : onDrawFace(canvas))
+                : canvas.drawRect(0, 0, width, height, errPaint)
+    }
 
     def onDrawBack(Canvas canvas) {
         cardBackground?.with {
@@ -141,54 +155,5 @@ public class CardView extends View {
                 (width - mRaceWidth) / 2 as float,
                 (height - mRaceHeight) as float,
                 mRacePaint)
-    }
-
-    /**
-     * 卡牌类型
-     * FIXME 之后把这个移动到Card中去
-     */
-    public static enum Type {
-        SPELL(0), MINION(1), WEAPON(2)
-
-        int id
-
-        private Type(int id) { this.id = id }
-    }
-
-    /**
-     * 卡牌种别
-     * FIXME 之后把这个移动到Card中去
-     */
-    public static enum Species {
-        Neutral(0),
-        Druid(1),
-        Hunter(2),
-        Master(3),
-        Paladin(4),
-        Pastor(5),
-        Thieves(6),
-        Shaman(7),
-        Warlock(8),
-        Warrior(9)
-
-        int id
-
-        private Species(int id) { this.id = id }
-    }
-
-    /**
-     * 卡牌种族
-     * FIXME 之后把这个移动到Card中去
-     */
-    public static enum Race {
-        NONE(0, ""), BEAST(1, "野兽"), MACHINE(2, "机械"), MURLOC(3, "鱼人"), DRAGON(4, "龙")
-
-        int id
-        String name
-
-        private Race(int id, String name) { this.id = id; this.name = name }
-
-        @Override
-        String toString() { name }
     }
 }
