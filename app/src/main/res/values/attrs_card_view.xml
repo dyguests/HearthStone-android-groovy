@@ -1,0 +1,72 @@
+<resources>
+    <!--卡牌View(部分重名属性采用cardXxx命名)-->
+    <declare-styleable name="CardView">
+        <attr name="exampleString" format="string"/>
+        <attr name="exampleDimension" format="dimension"/>
+        <attr name="exampleColor" format="color"/>
+        <attr name="exampleDrawable" format="color|reference"/>
+
+
+        <!--卡牌方向-->
+        <attr name="direction">
+            <!--正面朝上-->
+            <flag name="face" value="0"/>
+            <!--背面朝上-->
+            <flag name="back" value="1"/>
+            <!--上面颠倒-->
+            <flag name="upsideDown" value="2"/>
+        </attr>
+
+        <!--卡牌类型-->
+        <attr name="type">
+            <!--随从-->
+            <enum name="minion" value="0"/>
+            <!--法术-->
+            <enum name="spell" value="1"/>
+            <!--武器-->
+            <enum name="weapon" value="2"/>
+        </attr>
+
+        <!--卡牌种别-->
+        <attr name="species">
+            <!--中立-->
+            <enum name="neutral" value="0"/>
+            <!--德鲁伊-->
+            <enum name="druid" value="1"/>
+            <!--猎人-->
+            <enum name="hunter" value="2"/>
+            <!--法师-->
+            <enum name="master" value="3"/>
+            <!--圣骑-->
+            <enum name="paladin" value="4"/>
+            <!--牧师-->
+            <enum name="pastor" value="5"/>
+            <!--盗贼-->
+            <enum name="thieves" value="6"/>
+            <!--萨满-->
+            <enum name="shaman" value="7"/>
+            <!--术士-->
+            <enum name="warlock" value="8"/>
+            <!--战士-->
+            <enum name="warrior" value="9"/>
+        </attr>
+
+        <attr name="cardTitle" format="string"/>
+        <attr name="description" format="string"/>
+        <attr name="explain" format="string"/>
+
+        <!--卡牌种族-->
+        <attr name="race">
+            <enum name="none" value="0"/>
+            <enum name="beast" value="1"/>
+            <enum name="machine" value="2"/>
+            <enum name="murloc" value="3"/>
+            <enum name="dragon" value="4"/>
+        </attr>
+
+        <!--图案-->
+        <attr name="pattern" format="color|reference"/>
+        <attr name="foreground" format="color|reference"/>
+        <attr name="cardBackground" format="color|reference"/>
+    </declare-styleable>
+</resources>

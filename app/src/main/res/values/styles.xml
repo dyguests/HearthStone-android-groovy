@@ -8,4 +8,11 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="testt" parent="android:Widget.CompoundButton.CheckBox">
+
+    </style>
+    <style name="testt2" parent="android:Widget.CompoundButton.RadioButton">
+
+    </style>
+
 </resources>

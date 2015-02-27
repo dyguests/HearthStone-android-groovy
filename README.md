@@ -30,9 +30,11 @@ Hearth Stone,HearthStone-android-groovy,炉石传说,炉石界面/框架/逻辑/
 
 如果有哪里写错了的话,希望能告诉我
 
+#游戏结构等
+
 套牌
 
-游戏界面组成
+##游戏界面组成
 
 | english     |中文  |
 | --------    | --- |
@@ -41,19 +43,69 @@ Hearth Stone,HearthStone-android-groovy,炉石传说,炉石界面/框架/逻辑/
 |cemetery     |坟场  |
 |Opponent     |对手  |
 
+##职业
 
-卡牌类型
+| english     |中文  |
+| --------    | --- |
+|Druid      |德鲁伊  |
+|Hunter      |猎人  |
+|Master      |法师  |
+|Paladin      |圣骑  |
+|Pastor      |牧师  |
+|Thieves      |盗贼  |
+|Shaman      |萨满  |
+|Warlock      |术士  |
+|Warrior      |战士  |
+
+
+##卡牌属性
+
+| english     |中文  |
+| --------    | --- |
+|type       |类型  |
+|species        |种别(猎人卡|牧师卡|中立卡)  |
+|title       |标题  |
+|description       |描述(如:冲锋)  |
+|explain       |说明(台词)(如:这张牌曾经是大法师XXX用过的)  |
+|pattern       |卡牌图案(相前卡特有的图片)  |
+|race       |种族  |
+|foreground       |卡面背景  |
+|background       |卡背背景  |
+
+###卡牌类型
 
 | english     |中文  |
 | --------    | --- |
 |minion       |随从  |
 |spell        |法术  |
-|weapon       |装备  |
+|weapon       |武器  |
 
-etc..
+###卡牌种别(species)
 
+| english     |中文  |
+| --------    | --- |
+|Neutral      |中立  |
+|Druid        |德鲁伊  |
+|Hunter       |猎人  |
+|Master       |法师  |
+|Paladin      |圣骑  |
+|Pastor       |牧师  |
+|Thieves      |盗贼  |
+|Shaman       |萨满  |
+|Warlock      |术士  |
+|Warrior      |战士  |
 
-随从属性
+###卡牌种族
+
+| english     |中文  |
+| --------    | --- |
+|none         |无  |
+|beast        |野兽  |
+|machine      |机械  |
+|murloc       |鱼人  |
+|dragon       |龙  |
+
+##随从属性
 
 | english     |中文  |
 | --------    | --- |
@@ -69,6 +121,8 @@ etc..
 
 参考:[demo.vaadin.com](demo.vaadin.com)
 
+##命令行模式下游戏命令
+
 | english     |中文  |
 | --------    | --- |
 |start    |开始游戏  |
@@ -76,7 +130,6 @@ etc..
 |xxxx    |xxx  |
 
 
-命令行模式
 
 
 #游戏流程
