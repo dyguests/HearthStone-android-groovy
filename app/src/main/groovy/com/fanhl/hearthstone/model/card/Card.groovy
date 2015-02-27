@@ -7,7 +7,7 @@ import com.fanhl.hearthstone.lang.MInt
  */
 abstract class Card {
     /**id(暂时没用)*/
-    String id
+    int id
     /**标题(名称)*/
     String title
     /**描述*/
@@ -17,8 +17,10 @@ abstract class Card {
     /**图片*/
     int patternId
 
+    /**类型*/
     abstract Type getType()
 
+    /**职业*/
     Occupation occupation
 
     /**基本费*/

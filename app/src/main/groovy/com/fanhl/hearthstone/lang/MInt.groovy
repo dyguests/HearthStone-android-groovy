@@ -16,7 +16,7 @@ class MInt {
     /**回合加成值*/
     int tmpAdd
     /**实际值(对某些类型无效,给血量用,像这样显示 current/(base+add+tmpAdd+site))*/
-    int current
+    int current//FIXME 之后这个不应该这么算
 
     public MInt(int base = 0, int add = 0, int tmpAdd = 0) {
         this.base = base
@@ -25,7 +25,7 @@ class MInt {
         this.current = sum()
     }
 
-    int sum() { base + add + tmpAdd }
+    int sum() { base + add + tmpAdd /*加上 场地加成*/ }
 
     @Override
     protected MInt clone() throws CloneNotSupportedException {

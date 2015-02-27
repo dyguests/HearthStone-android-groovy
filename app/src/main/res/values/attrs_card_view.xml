@@ -1,4 +1,5 @@
 <resources>
+    <!--FIXME 之后删除-->
     <!--卡牌View(部分重名属性采用cardXxx命名)-->
     <declare-styleable name="CardView">
         <attr name="exampleString" format="string"/>

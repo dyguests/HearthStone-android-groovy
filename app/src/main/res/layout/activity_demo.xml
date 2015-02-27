@@ -12,7 +12,7 @@
 
 
     <com.fanhl.hearthstone.widget.CardView
-        android:layout_width="125dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         app:cardBackground="#123456"

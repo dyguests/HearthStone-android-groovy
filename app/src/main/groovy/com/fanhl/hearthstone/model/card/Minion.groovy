@@ -11,12 +11,14 @@ class Minion extends Card {
     MInt attack
     MInt blood
 
+    Race race
+
     @Override
     Type getType() { Type.MINION }
 
     @Override
     protected Minion clone() throws CloneNotSupportedException {
-        new Minion(id: id, title: title,description: description,explain: explain, patternId: patternId,
-                 cost: cost.clone(), attack: attack.clone(), blood: blood.clone())
+        new Minion(id: id, title: title, description: description, explain: explain, patternId: patternId, race:race,
+                cost: cost.clone(), attack: attack.clone(), blood: blood.clone())
     }
 }
