@@ -23,7 +23,7 @@ import com.fanhl.hearthstone.model.card.Weapon
  *
  * Created by fanhl on 15/2/25.
  */
-public class CardView extends View {
+public class CardView extends AbstractView {
     /**高:宽*/
     public static final float HEIGHT2WIDTH_RATE = 1.5f
 
@@ -38,20 +38,6 @@ public class CardView extends View {
     int direction = 0//0b0:正面,0b1:背面,0b10:上下倒转
 
     Card card
-
-    //FIXME 以下要删除
-//    int type = Card.Type.SPELL.id
-//    /**职业*/
-//    int occupation = Card.Occupation.Neutral.id
-//
-//    String cardTitle = "标题"
-//    String description = "描述"
-//    String explain = "台词"
-//
-//    /**种族*/
-//    int race = Card.Race.NONE.id
-//    String raceString
-    //FIXME 以上要删除
 
     /**图案*/
     Drawable pattern
@@ -84,7 +70,7 @@ public class CardView extends View {
     }
 
     def bind(Card card) {
-        this.card = card;
+        this.card = card
 //        pattern=getResources().getDrawable(card.patternId)//FIXME
         foreground = getResources().getDrawable(R.drawable.card_foreground_normal)//FIXME 之后改成根据card从Builder中算出来
         cardBackground = getResources().getDrawable(R.drawable.card_background_normal)//FIXME
@@ -95,30 +81,6 @@ public class CardView extends View {
     }
 
     private void init(AttributeSet attrs, int defStyle) {
-//        final TypedArray typedArray = getContext().obtainStyledAttributes(
-//                attrs, R.styleable.CardView, defStyle, 0)
-//
-//        direction = typedArray.getInt(R.styleable.CardView_direction, direction)
-//        type = typedArray.getInt(R.styleable.CardView_type, type)
-//        occupation = typedArray.getInt(R.styleable.CardView_occupation, occupation)
-//        cardTitle = typedArray.getString(R.styleable.CardView_cardTitle) ?: cardTitle
-//        description = typedArray.getString(R.styleable.CardView_description) ?: description
-//        explain = typedArray.getString(R.styleable.CardView_explain) ?: explain
-//        race = typedArray.getInt(R.styleable.CardView_race, race)
-//
-//        if (typedArray.hasValue(R.styleable.CardView_pattern)) {
-//            pattern = typedArray.getDrawable(R.styleable.CardView_pattern)
-//        }
-//        if (typedArray.hasValue(R.styleable.CardView_foreground)) {
-//            foreground = typedArray.getDrawable(R.styleable.CardView_foreground)
-//        }
-//        if (typedArray.hasValue(R.styleable.CardView_cardBackground)) {
-//            cardBackground = typedArray.getDrawable(R.styleable.CardView_cardBackground)
-//        }
-//
-//        typedArray.recycle()
-
-
         errPaint = new Paint()
         errPaint.setColor(Color.RED)
 
@@ -128,9 +90,6 @@ public class CardView extends View {
     }
 
     private void initPaint() {
-//        errPaint = new Paint()
-//        errPaint.setColor(Color.RED)
-
         titleHolder = new TextDrawerHolder()
         descriptionHolder = new TextDrawerHolder()
 
@@ -235,65 +194,5 @@ public class CardView extends View {
 
             raceHolder.draw(canvas)
         }
-    }
-
-    static class TextDrawerHolder {
-        String text
-
-        TextPaint paint
-        float width
-        float height
-        float x
-        float y
-
-        public TextDrawerHolder() {
-            paint = new TextPaint()
-            paint.setFlags(Paint.ANTI_ALIAS_FLAG)
-            paint.setTextAlign(Paint.Align.LEFT)//FIXME 这是原来的
-//            paint.setTextAlign(Paint.Align.CENTER)
-            paint.setColor(Color.WHITE)//FIXME 写入资源文件
-        }
-
-        /**
-         * 绘制要用到的一些参数
-         *
-         * @param text
-         * @param textSize
-         * @param xx
-         * @param yy
-         * @param datum 基准点
-         * @return
-         */
-        def setParams(String text, Float textSize, Float xx, Float yy, Datum datum) {
-            this.text = text
-            paint.setTextSize(textSize)
-
-            width = paint.measureText(text)
-            height = paint.getFontMetrics().bottom
-
-//因为本身是以水平居中为基点的
-            switch (datum) {
-                case Datum.TOP: x = xx - width / 2; y = yy + height; break
-                case Datum.BOTTOM: x = xx - width / 2; y = yy /*- height/2*/; break
-                case Datum.LEFT: x = xx; y = yy + height / 2; break
-                case Datum.RIGHT: x = xx - width; y = yy + height / 2; break
-                case Datum.CENTER: x = xx - width / 2; y = yy + height / 2; break
-                default: x = xx; y = yy; break
-            }
-        }
-
-        def draw(Canvas canvas) {
-            canvas.drawText(text, x, y, paint)
-        }
-    }
-
-    /**
-     * 基准点
-     *
-     * 专门给 CardView.TextDrawerHolder#setParams 用的
-     * 用来设置(x,y)对应的TextDrawerHolder的哪个位置
-     */
-    static enum Datum {
-        TOP, BOTTOM, LEFT, RIGHT, CENTER
     }
 }
