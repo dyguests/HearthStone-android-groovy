@@ -17,6 +17,8 @@ import com.fanhl.hearthstone.model.card.Weapon
 /**
  * AbstractView
  *
+ * 包含两绘制器
+ *
  * 将CardView/MinionView/WeaponView/... 的共通部分抽到这里来
  *
  *

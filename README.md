@@ -26,6 +26,8 @@ Hearth Stone,HearthStone-android-groovy,炉石传说,炉石界面/框架/逻辑/
 
 2.  之后把 heroView等从layout改成view,各元素在onDraw中实现
 
+3.  把clone改成AutoClone
+
 #笔记
 
 如果有哪里写错了的话,希望能告诉我

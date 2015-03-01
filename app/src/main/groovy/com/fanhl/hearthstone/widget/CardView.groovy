@@ -5,9 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
-import android.text.TextPaint
 import android.util.AttributeSet
-import android.view.View
 import com.fanhl.hearthstone.R
 import com.fanhl.hearthstone.factory.CardBuilder
 import com.fanhl.hearthstone.model.card.Card
@@ -72,8 +70,8 @@ public class CardView extends AbstractView {
     def bind(Card card) {
         this.card = card
 //        pattern=getResources().getDrawable(card.patternId)//FIXME
-        foreground = getResources().getDrawable(R.drawable.card_foreground_normal)//FIXME 之后改成根据card从Builder中算出来
-        cardBackground = getResources().getDrawable(R.drawable.card_background_normal)//FIXME
+        foreground = getResources().getDrawable(R.drawable.card_view_foreground_normal)//FIXME 之后改成根据card从Builder中算出来
+        cardBackground = getResources().getDrawable(R.drawable.card_view_background_normal)//FIXME
 
         initPaint()
 

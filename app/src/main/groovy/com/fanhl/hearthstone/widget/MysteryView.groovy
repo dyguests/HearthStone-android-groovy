@@ -5,13 +5,10 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
-import android.text.TextPaint
 import android.util.AttributeSet
-import android.view.View
 import com.fanhl.hearthstone.R
 import com.fanhl.hearthstone.factory.CardBuilder
 import com.fanhl.hearthstone.model.card.Mystery
-import com.fanhl.hearthstone.model.card.Weapon
 
 /**
  * 奥秘视图(只显示奥秘装上的视图,其它形态使用其它的View来表示)
@@ -54,7 +51,7 @@ public class MysteryView extends AbstractView {
     def bind(Mystery mystery) {
         this.mystery = mystery
 //        pattern=getResources().getDrawable(card.patternId)//FIXME
-        cardBackground = getResources().getDrawable(R.drawable.mystery_normal)//FIXME
+        cardBackground = getResources().getDrawable(R.drawable.mystery_view_background)//FIXME
 
         initPaint()
 
@@ -67,7 +64,6 @@ public class MysteryView extends AbstractView {
 
         //FIXME 测试用
         CardBuilder.init()
-
         bind(CardBuilder.newCard(400001))
     }
 

@@ -5,14 +5,10 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
-import android.text.TextPaint
 import android.util.AttributeSet
-import android.view.View
 import com.fanhl.hearthstone.R
 import com.fanhl.hearthstone.factory.CardBuilder
-import com.fanhl.hearthstone.model.card.Card
 import com.fanhl.hearthstone.model.card.Minion
-import com.fanhl.hearthstone.model.card.Weapon
 
 /**
  * 卡牌视图(只显示随从上场的视图,其它形态使用其它的View来表示)
@@ -65,7 +61,7 @@ public class MinionView extends AbstractView {
     def bind(Minion minion) {
         this.minion = minion
 //        pattern=getResources().getDrawable(card.patternId)//FIXME
-        cardBackground = getResources().getDrawable(R.drawable.weapon_normal)//FIXME
+        cardBackground = getResources().getDrawable(R.drawable.weapon_view_background)//FIXME
 
         initPaint()
 

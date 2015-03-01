@@ -26,6 +26,14 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
         <com.fanhl.hearthstone.widget.MinionView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
@@ -41,6 +49,14 @@
         android:layout_height="fill_parent"
         android:layout_weight="1"
         android:orientation="vertical">
-    </LinearLayout>
 
+        <com.fanhl.hearthstone.widget.HeroView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"/>
+        <com.fanhl.hearthstone.widget.SkillView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"/>
+    </LinearLayout>
 </LinearLayout>
