@@ -1,4 +1,4 @@
-package com.fanhl.hearthstone.widget
+package com.fanhl.hearthstone.widget.item
 
 import android.content.Context
 import android.graphics.Canvas
@@ -119,12 +119,12 @@ public class MinionView extends AbstractView {
         int heightSize = widthSize * HEIGHT2WIDTH_RATE
         int newHeightMeasureSpec = android.view.View.MeasureSpec.makeMeasureSpec(heightSize, widthMode)
 
-        super.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
+        Object.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas)
+        Object.onDraw(canvas)
 
         if (!minion) {
             canvas.drawRect(0, 0, width, height, errPaint)

@@ -2,6 +2,8 @@ package com.fanhl.hearthstone
 
 import android.app.Application
 import com.fanhl.hearthstone.factory.CardBuilder
+import com.fanhl.hearthstone.factory.HeroBuilder
+import com.fanhl.hearthstone.factory.SkillBuilder
 import com.fanhl.util.Lg
 
 /**
@@ -20,6 +22,8 @@ class App extends Application {
 
     def init() {
         CardBuilder.init()
+        SkillBuilder.init()
+        HeroBuilder.init()
     }
 
 }

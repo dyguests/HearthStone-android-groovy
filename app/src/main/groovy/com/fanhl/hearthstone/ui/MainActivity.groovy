@@ -16,6 +16,7 @@ public class MainActivity extends AbstractBaseActivity {
 //        findViewById(R.id.practice).onClickListener = { openActivity(PracticeActivity.class) }
 //        findViewById(R.id.arena).onClickListener = { openActivity(ArenaActivity.class) }
 //        findViewById(R.id.myCollection).onClickListener = { openActivity(MyCollectionActivity.class) }
+        findViewById(R.id.boardDemo).onClickListener = { openActivity(BoardActivity.class) }
         findViewById(R.id.demo).onClickListener = { openActivity(DemoActivity.class) }
     }
 }

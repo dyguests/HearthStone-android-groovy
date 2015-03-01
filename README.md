@@ -28,6 +28,8 @@ Hearth Stone,HearthStone-android-groovy,炉石传说,炉石界面/框架/逻辑/
 
 3.  把clone改成AutoClone
 
+4.  武器/技术 是有正/反面的(使用前/后),之后要加上
+
 #笔记
 
 如果有哪里写错了的话,希望能告诉我

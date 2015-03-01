@@ -18,11 +18,14 @@
     <string name="hero_demo">英雄</string>
     <string name="equipment_demo">装备</string>
     <string name="demo">演示</string>
-    <string name="next_turn">结束回合</string>
     <string name="library_count_demo">30</string>
 
-    <string name="titleDemo">前列腺®炎</string>
-    <string name="descriptionDemo">对一个随从造成6点伤害</string>
-    <string name="explainDemo">食我大FFF啦</string>
+    <string name="title_demo">前列腺®炎</string>
+    <string name="description_demo">对一个随从造成6点伤害</string>
+    <string name="explain_demo">食我大FFF啦</string>
+    <string name="board_demo">桌游演示</string>
+
+    <string name="next_turn_enable">结束回合</string>
+    <string name="next_turn_disable">对方回合</string>
 
 </resources>

@@ -24,7 +24,7 @@ class HeroBuilder {
     }
 
     static Hero createHero(String title, int patternId, String description = "暂无", String explain = "", int attack = 1, int blood = 1, int skillId = 100001) {
-        def skill = SkillBuilder.createSkill(skillId)
+        def skill = SkillBuilder.newSkill(skillId)
         new Hero(title: title, patternId: patternId, description: description, explain: explain,
                 attack: new MInt(attack), blood: new MInt(blood), skill: skill)
     }

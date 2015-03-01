@@ -1,0 +1,67 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:orientation="horizontal"
+    tools:context=".ui.BoardActivity">
+
+    <LinearLayout
+        android:id="@+id/boardContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/manualView"
+            style="@style/manual_view"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:id="@+id/belongsContainer"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:clipChildren="false"
+                android:divider="@drawable/belongs_view_divider"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <LinearLayout
+                    android:id="@+id/rivalBelongView"
+                    style="@style/belong_view"
+                    android:orientation="horizontal">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/myBelongView"
+                    style="@style/belong_view"
+                    android:orientation="horizontal">
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/nextTurnButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/next_turn_enable"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

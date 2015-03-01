@@ -9,10 +9,20 @@
     </style>
 
     <style name="testt" parent="android:Widget.CompoundButton.CheckBox">
-
     </style>
-    <style name="testt2" parent="android:Widget.CompoundButton.RadioButton">
 
+    <style name="testt2" parent="android:Widget.CompoundButton.RadioButton">
+    </style>
+
+    <style name="manual_view">
+        <item name="android:background">@color/manual_view_background</item>
+    </style>
+
+    <style name="belong_view">
+        <item name="android:background">@drawable/belong_view_background</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
 </resources>

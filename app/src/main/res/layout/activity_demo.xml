@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -17,12 +16,12 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.fanhl.hearthstone.widget.CardView
+        <com.fanhl.hearthstone.widget.item.CardView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"/>
 
-        <com.fanhl.hearthstone.widget.WeaponView
+        <com.fanhl.hearthstone.widget.item.WeaponView
             android:layout_width="120dp"
             android:layout_height="wrap_content"/>
 
@@ -34,12 +33,12 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.fanhl.hearthstone.widget.MinionView
+        <com.fanhl.hearthstone.widget.item.MinionView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"/>
 
-        <com.fanhl.hearthstone.widget.MysteryView
+        <com.fanhl.hearthstone.widget.item.MysteryView
             android:layout_width="50dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -50,11 +49,11 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.fanhl.hearthstone.widget.HeroView
+        <com.fanhl.hearthstone.widget.item.HeroView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"/>
-        <com.fanhl.hearthstone.widget.SkillView
+        <com.fanhl.hearthstone.widget.item.SkillView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"/>

@@ -1,4 +1,4 @@
-package com.fanhl.hearthstone.widget
+package com.fanhl.hearthstone.widget.item
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,60 +7,57 @@ import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import com.fanhl.hearthstone.R
-import com.fanhl.hearthstone.factory.CardBuilder
-import com.fanhl.hearthstone.factory.HeroBuilder
-import com.fanhl.hearthstone.model.Hero
-import com.fanhl.hearthstone.model.card.Weapon
+import com.fanhl.hearthstone.factory.SkillBuilder
+import com.fanhl.hearthstone.model.Skill
 
 /**
- * 英雄视图
+ * 武器视图(只显示武器被装备上的视图,其它形态使用其它的View来表示)
  *
  * 由于长宽比是固定的,所以只需要设定宽度(具体值),设定高度没有用
  *
  * 不接收padding参数
  *
- * Created by fanhl on 15/3/1.
+ * Created by fanhl on 15/2/28.
  */
-public class HeroView extends AbstractView {
+public class SkillView extends AbstractView {
     /**高:宽*/
     public static final float HEIGHT2WIDTH_RATE = 1.0f
 
-    public static final float TITLE2WIDTH_RATE = 0.15f
+    public static final float TITLE2WIDTH_RATE = 0.3f
     /**费|攻击|血|耐久:宽*/
-    public static final float MINT2WIDTH_RATE = 0.2f
+    public static final float MINT2WIDTH_RATE = 0.3f
 
-    Hero hero
+    Skill skill
 
     /**图案*/
     Drawable pattern
     Drawable cardBackground
 
     //以下用来绘制文字
-    TextDrawerHolder attackHolder
-    TextDrawerHolder bloodHolder
+    TextDrawerHolder costHolder
     TextDrawerHolder titleHolder
 
     private Paint errPaint
 
-    public HeroView(Context context) {
+    public SkillView(Context context) {
         super(context)
         init(null, 0)
     }
 
-    public HeroView(Context context, AttributeSet attrs) {
+    public SkillView(Context context, AttributeSet attrs) {
         super(context, attrs)
         init(attrs, 0)
     }
 
-    public HeroView(Context context, AttributeSet attrs, int defStyle) {
+    public SkillView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle)
         init(attrs, defStyle)
     }
 
-    def bind(Hero hero) {
-        this.hero = hero
+    def bind(Skill skill) {
+        this.skill = skill
 //        pattern=getResources().getDrawable(card.patternId)//FIXME
-        cardBackground = getResources().getDrawable(R.drawable.hero_view_background)//FIXME
+        cardBackground = getResources().getDrawable(R.drawable.skill_view_background)//FIXME
 
         initPaint()
 
@@ -72,24 +69,21 @@ public class HeroView extends AbstractView {
         errPaint.setColor(Color.RED)
 
         //FIXME 测试用
-        HeroBuilder.init()
-        bind(HeroBuilder.newHero(100001))
+        SkillBuilder.init()
+        bind(SkillBuilder.newSkill(100001))
     }
 
     private void initPaint() {
-        attackHolder = new TextDrawerHolder()
-        bloodHolder = new TextDrawerHolder()
+        costHolder = new TextDrawerHolder()
         titleHolder = new TextDrawerHolder()
 
     }
 
     private void invalidatePaintAndMeasurements() {
-        attackHolder.setParams(hero.attack.current.toString(), width * MINT2WIDTH_RATE as float,
-                width * 0.1 as float, height * 0.8f as float, Datum.CENTER)
-        bloodHolder.setParams(hero.blood.current.toString(), width * MINT2WIDTH_RATE as float,
-                width * 0.9 as float, height * 0.8f as float, Datum.CENTER)
+        costHolder.setParams(skill.cost.current.toString(), width * MINT2WIDTH_RATE as float,
+                width * 0.9 as float, height * 0.7f as float, Datum.CENTER)
 //标题
-        titleHolder.setParams(hero.title, width * TITLE2WIDTH_RATE as float,
+        titleHolder.setParams(skill.title, width * TITLE2WIDTH_RATE as float,
                 width / 2 as float, height * 0.6f as float, Datum.CENTER)
 
         //FIXME 测试用
@@ -113,13 +107,13 @@ public class HeroView extends AbstractView {
         int heightSize = widthSize * HEIGHT2WIDTH_RATE
         int newHeightMeasureSpec = android.view.View.MeasureSpec.makeMeasureSpec(heightSize, widthMode)
 
-        super.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
+        Object.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas)
-        if (!hero) {
+        Object.onDraw(canvas)
+        if (!skill) {
             canvas.drawRect(0, 0, width, height, errPaint)
             return
         }
@@ -131,8 +125,7 @@ public class HeroView extends AbstractView {
             draw(canvas)
         }
         titleHolder.draw(canvas)
-        attackHolder.draw(canvas)//FIXME 之前改成英雄专用 holder,攻击为0时不显示
-        bloodHolder.draw(canvas)
+        costHolder.draw(canvas)
     }
 
 
