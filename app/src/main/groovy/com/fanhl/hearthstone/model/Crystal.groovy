@@ -15,7 +15,7 @@ class Crystal {
     /** 下个回合初始不可用费的过载*/
     int nextOverload
 
-    def Crystal(int base) {
+    def Crystal(int base = 0) {
         this.base = base
         this.current = base
         this.currentOverload = 0

@@ -13,7 +13,9 @@ import android.widget.RelativeLayout
 import com.fanhl.hearthstone.R
 import com.fanhl.hearthstone.factory.CardBuilder
 import com.fanhl.hearthstone.model.card.Minion
+import com.fanhl.hearthstone.model.container.Hands
 import com.fanhl.hearthstone.model.container.Site
+import com.fanhl.hearthstone.widget.item.CardView
 import com.fanhl.hearthstone.widget.item.MinionView
 
 /**
@@ -21,31 +23,31 @@ import com.fanhl.hearthstone.widget.item.MinionView
  *
  * Created by fanhl on 15/1/21.
  */
-public class SiteView extends RelativeLayout {
-    Site data
+public class HandsView extends RelativeLayout {
+    Hands data
 
     private RecyclerView recyclerView
-    SiteAdapter siteAdapter
+    HandsAdapter siteAdapter
 
-    public SiteView(Context context) {
+    public HandsView(Context context) {
         super(context)
         init(context, null, 0)
     }
 
 
-    public SiteView(Context context, AttributeSet attrs) {
+    public HandsView(Context context, AttributeSet attrs) {
         super(context, attrs)
         init(context, attrs, 0)
     }
 
-    public SiteView(Context context, AttributeSet attrs, int defStyle) {
+    public HandsView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle)
         init(context, attrs, defStyle)
     }
 
     def init(Context context, AttributeSet attributeSet, int i) {
         LayoutInflater inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
-        inflater.inflate(R.layout.view_site, this)
+        inflater.inflate(R.layout.view_hands, this)
 
         assignViews()
         editModeDemo()
@@ -67,21 +69,22 @@ public class SiteView extends RelativeLayout {
 //        if (!isInEditMode()) return
 
 
-        def site = new Site()
+        def hands = new Hands()
         CardBuilder.init()
-        site << CardBuilder.newCard(100001)
-        site << CardBuilder.newCard(100002)
-        site << CardBuilder.newCard(100003)
-        bindData(site)
+        hands << CardBuilder.newCard(100001)
+        hands << CardBuilder.newCard(100002)
+//        hands << CardBuilder.newCard(200001)
+//        hands << CardBuilder.newCard(400001)
+        bindData(hands)
     }
 
     def notifyOperate() {
         //FIXME 通知当前操作
     }
 
-    def bindData(Site data) {
+    def bindData(Hands data) {
         this.data = data
-        siteAdapter = new SiteAdapter(getContext(), data)
+        siteAdapter = new HandsAdapter(getContext(), data)
         recyclerView.setAdapter(siteAdapter)
 //        siteAdapter.notifyDataSetChanged()
     }
@@ -113,18 +116,18 @@ public class SiteView extends RelativeLayout {
      *
      * Created by fanhl on 15/1/24.
      */
-    static class SiteAdapter extends RecyclerView.Adapter<Holder> {
+    static class HandsAdapter extends RecyclerView.Adapter<Holder> {
 
         public static final int MINION_WIDTH = 200
 
         final Context context
         private ViewGroup.LayoutParams layoutParams
 
-        Site site
+        Hands hands
 
-        public SiteAdapter(Context context, Site site) {
+        public HandsAdapter(Context context, Hands hands) {
             this.context = context
-            this.site = site
+            this.hands = hands
             init()
         }
 
@@ -135,17 +138,17 @@ public class SiteView extends RelativeLayout {
 
         @Override
         Holder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            def minionView = new MinionView(context)
-
-            minionView.setLayoutParams(layoutParams)
-            new Holder(minionView)
+            def cardView = new CardView(context)
+//            cardView.getLayoutParams().width=MINION_WIDTH
+            cardView.setLayoutParams(layoutParams)
+            new Holder(cardView)
         }
 
         @Override
-        void onBindViewHolder(Holder holder, int i) { holder.bindData(site[i]) }
+        void onBindViewHolder(Holder holder, int i) { holder.bindData(hands[i]) }
 
         @Override
-        int getItemCount() { return site.size() }
+        int getItemCount() { return hands.size() }
 
         static class Holder extends RecyclerView.ViewHolder {
             Holder(View itemView) { super(itemView) }

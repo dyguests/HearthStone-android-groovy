@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.fanhl.hearthstone.R
+import com.fanhl.hearthstone.model.container.Belong
 
 /**
  * 玩家所属区域(用来区分游戏双方)
@@ -12,6 +13,7 @@ import com.fanhl.hearthstone.R
  * Created by fanhl on 15/1/28.
  */
 public class BelongView extends LinearLayout {
+    Belong data
 
     public BelongView(Context context) {
         super(context)

@@ -35,7 +35,7 @@ class CardBuilder {
         cards.put(100014, createMinion("好烦", 0, "这是个司令", "测试用种族", 8, 10, 8))
         cards.put(100015, createMinion("哈哈哈", 0, "这是个司令", "测试用种族", 8, 10, 8))
         cards.put(200001, createWeapon("大砍刀", 0, "普通的刀", "这是把刀", 8, 10, 8))
-        cards.put(400001, createMystery("大砍刀", 0, "普通的刀", "这是把刀", 8, 10, 8))
+        cards.put(400001, createMystery("小奥秘", 0, "普通的刀", "这是把刀", 8, 10, 8))
 
         lgd "初始化所有Card结束"
     }

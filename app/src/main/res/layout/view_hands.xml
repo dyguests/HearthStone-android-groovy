@@ -3,9 +3,9 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffc554"
+                android:background="#ffc1ff9a"
                 android:orientation="vertical"
-                tools:context=".widget.container.SiteView">
+                tools:context=".widget.container.HandsView">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
