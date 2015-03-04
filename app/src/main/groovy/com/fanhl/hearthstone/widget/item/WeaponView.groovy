@@ -8,6 +8,8 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import com.fanhl.hearthstone.R
 import com.fanhl.hearthstone.factory.CardBuilder
+import com.fanhl.hearthstone.model.Skill
+import com.fanhl.hearthstone.model.card.Card
 import com.fanhl.hearthstone.model.card.Weapon
 
 /**
@@ -111,12 +113,12 @@ public class WeaponView extends AbstractView {
         int heightSize = widthSize * HEIGHT2WIDTH_RATE
         int newHeightMeasureSpec = android.view.View.MeasureSpec.makeMeasureSpec(heightSize, widthMode)
 
-        Object.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
+        super.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Object.onDraw(canvas)
+        super.onDraw(canvas)
         if (!weapon) {
             canvas.drawRect(0, 0, width, height, errPaint)
             return

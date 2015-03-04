@@ -113,12 +113,12 @@ public class HeroView extends AbstractView {
         int heightSize = widthSize * HEIGHT2WIDTH_RATE
         int newHeightMeasureSpec = android.view.View.MeasureSpec.makeMeasureSpec(heightSize, widthMode)
 
-        Object.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
+        super.onMeasure(widthMeasureSpec, newHeightMeasureSpec)
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Object.onDraw(canvas)
+        super.onDraw(canvas)
         if (!hero) {
             canvas.drawRect(0, 0, width, height, errPaint)
             return

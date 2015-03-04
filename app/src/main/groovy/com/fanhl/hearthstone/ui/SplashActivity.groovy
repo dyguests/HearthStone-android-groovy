@@ -20,7 +20,7 @@ public class SplashActivity extends AbstractBaseActivity {
         animation.animationListener = [
                 onAnimationStart : {},
                 onAnimationRepeat: {},
-                onAnimationEnd   : { mHandler.postDelayed({ goHome() }, 500) }
+                onAnimationEnd   : { mHandler.postDelayed({ goHome() }, 200) }
         ] as Animation.AnimationListener
     }
 

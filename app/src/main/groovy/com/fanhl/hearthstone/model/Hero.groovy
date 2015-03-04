@@ -19,6 +19,7 @@ class Hero {
     int patternId
 
     MInt attack
+    MInt armor
     MInt blood
 
     Skill skill
@@ -26,6 +27,6 @@ class Hero {
     @Override
     protected Hero clone() throws CloneNotSupportedException {
         new Hero(id: id, title: title, description: description, explain: explain, patternId: patternId,
-                attack: attack.clone(), blood: blood.clone(), skill: skill.clone())
+                attack: attack.clone(), armor: armor.clone(), blood: blood.clone(), skill: skill.clone())
     }
 }

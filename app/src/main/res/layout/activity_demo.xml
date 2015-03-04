@@ -53,9 +53,15 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"/>
+
         <com.fanhl.hearthstone.widget.item.SkillView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"/>
+
+        <com.fanhl.hearthstone.widget.item.LibraryView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"/>
     </LinearLayout>
 </LinearLayout>

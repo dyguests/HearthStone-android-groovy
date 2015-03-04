@@ -8,10 +8,10 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import com.fanhl.hearthstone.R
 import com.fanhl.hearthstone.factory.CardBuilder
-import com.fanhl.hearthstone.model.card.Mystery
+import com.fanhl.hearthstone.model.container.Library
 
 /**
- * 奥秘视图(只显示奥秘装上的视图,其它形态使用其它的View来表示)
+ * 牌堆视图
  *
  * 由于长宽比是固定的,所以只需要设定宽度(具体值),设定高度没有用
  *
@@ -19,39 +19,41 @@ import com.fanhl.hearthstone.model.card.Mystery
  *
  * Created by fanhl on 15/2/28.
  */
-public class MysteryView extends AbstractView {
+public class LibraryView extends AbstractView {
     /**高:宽*/
-    public static final float HEIGHT2WIDTH_RATE = 1.0f
+    public static final float HEIGHT2WIDTH_RATE = 4.0f
+    public static final float COUNT2WIDTH_RATE = 0.8f
 
-
-    Mystery mystery
+    Library data
 
     /**图案*/
-//    Drawable pattern
+    Drawable pattern
     Drawable cardBackground
 
+    //以下用来绘制文字
+    TextDrawerHolder countHolder
 
     private Paint errPaint
 
-    public MysteryView(Context context) {
+    public LibraryView(Context context) {
         super(context)
         init(null, 0)
     }
 
-    public MysteryView(Context context, AttributeSet attrs) {
+    public LibraryView(Context context, AttributeSet attrs) {
         super(context, attrs)
         init(attrs, 0)
     }
 
-    public MysteryView(Context context, AttributeSet attrs, int defStyle) {
+    public LibraryView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle)
         init(attrs, defStyle)
     }
 
-    def bind(Mystery mystery) {
-        this.mystery = mystery
+    def bind(Library data) {
+        this.data = data
 //        pattern=getResources().getDrawable(card.patternId)//FIXME
-        cardBackground = getResources().getDrawable(R.drawable.mystery_view_background)//FIXME
+        cardBackground = getResources().getDrawable(R.drawable.library_view_background)//FIXME
 
         initPaint()
 
@@ -64,13 +66,35 @@ public class MysteryView extends AbstractView {
 
         //FIXME 测试用
         CardBuilder.init()
-        bind(CardBuilder.newCard(400001))
+        Library demoLib = new Library()
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        demoLib.add(CardBuilder.newCard(100007))
+        bind(demoLib)
     }
 
     private void initPaint() {
+        countHolder = new TextDrawerHolder()
+
     }
 
     private void invalidatePaintAndMeasurements() {
+        //数量
+        countHolder.setParams(String.valueOf(data.size()), width * COUNT2WIDTH_RATE as float,
+                width / 2 as float, height * 0.6f as float, Datum.CENTER)
     }
 
 
@@ -92,7 +116,7 @@ public class MysteryView extends AbstractView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas)
-        if (!mystery) {
+        if (!data) {
             canvas.drawRect(0, 0, width, height, errPaint)
             return
         }
@@ -103,6 +127,8 @@ public class MysteryView extends AbstractView {
             setBounds(0, 0, width, height)
             draw(canvas)
         }
+        countHolder.draw(canvas)
     }
+
 
 }
