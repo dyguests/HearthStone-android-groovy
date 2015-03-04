@@ -11,8 +11,12 @@
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:gravity="bottom|center_horizontal"
+        android:gravity="top|center_horizontal"
         android:orientation="vertical">
+
+        <com.fanhl.hearthstone.widget.item.HeroView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,9 +33,6 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
-        <com.fanhl.hearthstone.widget.item.HeroView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -40,15 +41,16 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <com.fanhl.hearthstone.widget.container.HandsView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+
         <com.fanhl.hearthstone.widget.container.SiteView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"/>
 
-        <com.fanhl.hearthstone.widget.container.HandsView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout
@@ -57,13 +59,14 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-        <com.fanhl.hearthstone.widget.item.LibraryView
-            android:layout_width="30dp"
+        <com.fanhl.hearthstone.widget.item.CrystalView
+            android:layout_width="20dp"
             android:layout_height="wrap_content"/>
 
-        <com.fanhl.hearthstone.widget.item.CrystalView
-            android:layout_width="30dp"
+        <com.fanhl.hearthstone.widget.item.LibraryView
+            android:layout_width="20dp"
             android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </LinearLayout>

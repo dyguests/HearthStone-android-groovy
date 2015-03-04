@@ -22,7 +22,7 @@ import com.fanhl.hearthstone.model.container.Library
  */
 public class CrystalView extends AbstractView {
     /**高:宽*/
-    public static final float HEIGHT2WIDTH_RATE = 3.0f
+    public static final float HEIGHT2WIDTH_RATE = 2.0f
     public static final float COUNT2WIDTH_RATE = 0.8f
 
     Crystal data

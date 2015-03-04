@@ -1,0 +1,12 @@
+<resources>
+    <!--BelongView-->
+    <declare-styleable name="BelongView">
+        <!--已方/他方 所属-->
+        <attr name="owner">
+            <!--自己-->
+            <flag name="me" value="0"/>
+            <!--对方-->
+            <flag name="rival" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

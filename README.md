@@ -34,6 +34,8 @@ Hearth Stone,HearthStone-android-groovy,炉石传说,炉石界面/框架/逻辑/
 
 6. MysteryAreaView 有空写写
 
+7. ActionView 每次操作 的视图 放到manual中用
+
 #笔记
 
 如果有哪里写错了的话,希望能告诉我
