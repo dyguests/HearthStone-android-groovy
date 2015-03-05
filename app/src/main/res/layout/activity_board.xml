@@ -20,7 +20,7 @@
         <LinearLayout
             android:id="@+id/manualView"
             style="@style/manual_view"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="fill_parent"
             android:orientation="vertical">
         </LinearLayout>
