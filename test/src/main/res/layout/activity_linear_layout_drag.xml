@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".ui.LinearLayoutDragActivity">
+
+    <LinearLayout
+        android:id="@+id/container1"
+        style="@style/container_normal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.fanhl.test.widget.RectView
+            android:id="@+id/item1"
+            style="@style/item_normal"/>
+
+        <com.fanhl.test.widget.RectView
+            android:id="@+id/item2"
+            style="@style/item_normal"/>
+
+        <com.fanhl.test.widget.RectView
+            android:id="@+id/item3"
+            style="@style/item_normal"/>
+
+        <com.fanhl.test.widget.RectView
+            android:id="@+id/item4"
+            style="@style/item_normal"/>
+
+        <com.fanhl.test.widget.RectView
+            android:id="@+id/item5"
+            style="@style/item_normal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container2"
+        style="@style/container_normal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+    </LinearLayout>
+</LinearLayout>
