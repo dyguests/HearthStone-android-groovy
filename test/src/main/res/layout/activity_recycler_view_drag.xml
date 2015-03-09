@@ -5,8 +5,22 @@
               android:orientation="vertical"
               tools:context=".ui.RecyclerViewDragActivity">
 
+    <Button
+        android:id="@+id/demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo"/>
+
     <com.fanhl.test.widget.RectContainerView
         android:id="@+id/rectContainerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#ff74e18a"/>
+
+    <com.fanhl.test.widget.OvalContainerView
+        android:id="@+id/ovalContainerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 </LinearLayout>

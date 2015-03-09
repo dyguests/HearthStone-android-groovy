@@ -11,10 +11,10 @@ import groovy.transform.InheritConstructors
  * Created by fanhl on 15/3/8.
  */
 @InheritConstructors
-public class RectContainerView extends AbstractContainerView {
+public class OvalContainerView extends AbstractContainerView {
     @Override
     protected void bindAdapter(List<Item> items) {
-        itemAdapter = new RectContainerView.ItemAdapter(getContext(), items)
+        itemAdapter = new OvalContainerView.ItemAdapter(getContext(), items)
         recyclerView.setAdapter(itemAdapter)
 //        itemAdapter.notifyDataSetChanged()
     }
@@ -23,6 +23,6 @@ public class RectContainerView extends AbstractContainerView {
         ItemAdapter(Context context, List<Item> items) { super(context, items) }
 
         @Override
-        View createItemView(Context context) { new RectView(context) }
+        View createItemView(Context context) { new OvalView(context) }
     }
 }
