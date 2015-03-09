@@ -8,11 +8,13 @@ import android.graphics.drawable.Drawable
 import android.text.TextPaint
 import android.util.AttributeSet
 import com.fanhl.test.R
+import com.fanhl.test.model.Item
 
 /**
  *
  */
 public class OvalView extends AbstractItemView {
+    Item item
     String text = "Na"
 
     private Drawable drawable
@@ -36,6 +38,8 @@ public class OvalView extends AbstractItemView {
         drawable = getResources().getDrawable(R.drawable.oval_view_background)
     }
 
+    def bind(Item item) { this.item = item }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -49,6 +53,11 @@ public class OvalView extends AbstractItemView {
         paint.setTextAlign(Paint.Align.LEFT)
         paint.setColor(Color.YELLOW)
         paint.setTextSize(50)
-        canvas.drawText(text, 50, 100, paint)
+
+        if (item) {
+            canvas.drawText(item.title, 50, 100, paint)
+        } else {
+            canvas.drawText(text, 50, 100, paint)
+        }
     }
 }

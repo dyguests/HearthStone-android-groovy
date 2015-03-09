@@ -8,11 +8,13 @@ import android.graphics.drawable.Drawable
 import android.text.TextPaint
 import android.util.AttributeSet
 import com.fanhl.test.R
+import com.fanhl.test.model.Item
 
 /**
  *
  */
 public class RectView extends AbstractItemView {
+    Item item
     String text
 
     private Drawable drawable
@@ -39,6 +41,8 @@ public class RectView extends AbstractItemView {
 //        setTag(text)
     }
 
+    def bind(Item item) { this.item = item }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas)
@@ -52,6 +56,11 @@ public class RectView extends AbstractItemView {
         paint.setTextAlign(Paint.Align.LEFT)
         paint.setColor(Color.YELLOW)
         paint.setTextSize(50)
-        canvas.drawText(text, 50, 100, paint)
+
+        if (item) {
+            canvas.drawText(item.title, 50, 100, paint)
+        } else {
+            canvas.drawText(text, 50, 100, paint)
+        }
     }
 }

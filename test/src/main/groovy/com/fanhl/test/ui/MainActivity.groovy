@@ -11,5 +11,6 @@ public class MainActivity extends AbstractBaseActivity {
         setContentView(R.layout.activity_main)
 
         fV(R.id.linearDrag).onClickListener = { openActivity(LinearLayoutDragActivity.class) }
+        fV(R.id.recyclerDrag).onClickListener = { openActivity(RecyclerViewDragActivity.class) }
     }
 }
