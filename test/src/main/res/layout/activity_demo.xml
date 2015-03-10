@@ -6,7 +6,7 @@
               tools:context=".ui.MainActivity">
 
 
-   <com.fanhl.test.widget.RectView
-       android:layout_width="100dp"
-       android:layout_height="wrap_content"/>
+    <com.fanhl.test.widget.RectView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

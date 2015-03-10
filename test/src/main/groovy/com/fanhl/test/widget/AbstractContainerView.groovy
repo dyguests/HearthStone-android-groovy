@@ -1,10 +1,12 @@
 package com.fanhl.test.widget
 
+import android.content.ClipData
 import android.content.Context
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -85,6 +87,7 @@ abstract class AbstractContainerView extends RelativeLayout {
         Holder onCreateViewHolder(ViewGroup viewGroup, int i) {
             def itemView = createItemView(context)
             itemView.setLayoutParams(layoutParams)
+            itemView.onTouchListener = itemOnTouchListener
             new Holder(itemView)
         }
 
@@ -92,6 +95,21 @@ abstract class AbstractContainerView extends RelativeLayout {
 
         @Override
         void onBindViewHolder(Holder holder, int i) { holder.bind(items[i]) }
+
+        View.OnTouchListener itemOnTouchListener = new View.OnTouchListener() {
+            @Override
+            boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    ClipData data = ClipData.newPlainText("", "")
+                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v)
+                    v.startDrag(data, shadowBuilder, v, 0)
+                    v.setVisibility(View.INVISIBLE)
+                    return true
+                } else {
+                    return false
+                }
+            }
+        }
 
         @Override
         int getItemCount() { return items.size() }

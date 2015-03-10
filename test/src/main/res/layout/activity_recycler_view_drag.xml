@@ -5,12 +5,6 @@
               android:orientation="vertical"
               tools:context=".ui.RecyclerViewDragActivity">
 
-    <Button
-        android:id="@+id/demo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Demo"/>
-
     <com.fanhl.test.widget.RectContainerView
         android:id="@+id/rectContainerView"
         android:layout_width="match_parent"

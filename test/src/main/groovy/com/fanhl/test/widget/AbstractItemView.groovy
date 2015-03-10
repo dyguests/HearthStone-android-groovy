@@ -13,7 +13,7 @@ abstract class AbstractItemView extends View {
     public static final int WIDTH = 150
     public static final int HEIGHT = 180
 
-    protected Item data
+     Item data
 
     protected Drawable itemBackground
 
